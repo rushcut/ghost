@@ -18,8 +18,11 @@ RUN \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
   useradd ghost --home /ghost
 
+RUN npm install pg
+
 # Add files.
 ADD start.bash /ghost-start
+
 
 # Set environment variables.
 ENV NODE_ENV production
